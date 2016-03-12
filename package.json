@@ -1,0 +1,203 @@
+{
+  "name": "singpath-jspm",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^5.0.0-beta8",
+    "compression": "^1.6.1",
+    "eslint": "^1.10.3",
+    "finalhandler": "^0.4.1",
+    "http2": "^3.3.2",
+    "jscs": "^2.9.0",
+    "jspm": "^0.16.31",
+    "morgan": "^1.7.0",
+    "serve-static": "^1.10.2"
+  },
+  "scripts": {
+    "build": "./bin/build",
+    "keygen": "openssl req -x509 -nodes -newkey rsa:4096 -new -days 1024 -subj \"/C=SG/ST=Denial/L=Singapore/O=Dis/CN=localhost\" -keyout bin/localhost.key -out bin/localhost.cert",
+    "lint": "eslint src/ && jscs src/",
+    "serve": "./bin/server.js src/",
+    "serve-build": "./bin/server.js build/",
+    "start": "./bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "directories": {
+      "baseURL": "src"
+    },
+    "dependencies": {
+      "ace": "github:ajaxorg/ace-builds@^1.2.3",
+      "angular": "github:angular/bower-angular@^1.5.0",
+      "angular-animate": "github:angular/bower-angular-animate@^1.5.0",
+      "angular-loading-bar": "github:chieffancypants/angular-loading-bar@^0.8.0",
+      "angular-material": "github:angular/bower-material@^1.0.6",
+      "angular-messages": "github:angular/bower-angular-messages@^1.5.0",
+      "angular-route": "github:angular/bower-angular-route@^1.5.0",
+      "angularfire": "github:firebase/angularfire@^1.1.4",
+      "cryptojs": "github:sytelus/cryptojs@^3.1.2",
+      "firebase": "github:firebase/firebase-bower@^2.4.1"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "clean-css": "npm:clean-css@^3.4.10",
+      "core-js": "npm:core-js@^1.1.4",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "text": "github:systemjs/plugin-text@^0.0.7"
+    },
+    "overrides": {
+      "github:sytelus/cryptojs@3.1.2": {
+        "main": "core",
+        "format": "global",
+        "directories": {
+          "lib": "components"
+        },
+        "shim": {
+          "core": {
+            "exports": "CryptoJS"
+          },
+          "sha224": {
+            "deps": [
+              "cryptojs/sha256"
+            ]
+          },
+          "sha512": {
+            "deps": [
+              "cryptojs/x64-core"
+            ]
+          },
+          "sha384": {
+            "deps": [
+              "cryptojs/x64-core",
+              "cryptojs/sha512"
+            ]
+          },
+          "sha3": {
+            "deps": [
+              "cryptojs/x64-core"
+            ]
+          },
+          "hmac-md5": {
+            "deps": [
+              "cryptojs/md5"
+            ]
+          },
+          "hmac-sha1": {
+            "deps": [
+              "cryptojs/sha1"
+            ]
+          },
+          "hmac-sha256": {
+            "deps": [
+              "cryptojs/sha256"
+            ]
+          },
+          "hmac-sha224": {
+            "deps": [
+              "cryptojs/sha256",
+              "cryptojs/sha224"
+            ]
+          },
+          "hmac-sha512": {
+            "deps": [
+              "cryptojs/x64-core",
+              "cryptojs/sha512"
+            ]
+          },
+          "hmac-sha384": {
+            "deps": [
+              "cryptojs/x64-core",
+              "cryptojs/sha512",
+              "cryptojs/sha384"
+            ]
+          },
+          "hmac-sha3": {
+            "deps": [
+              "cryptojs/x64-core",
+              "cryptojs/sha3"
+            ]
+          },
+          "hmac-ripemd160": {
+            "deps": [
+              "cryptojs/ripemd160"
+            ]
+          },
+          "pbkdf2": {
+            "deps": [
+              "cryptojs/sha1",
+              "cryptojs/hmac"
+            ]
+          },
+          "aes": {
+            "deps": [
+              "cryptojs/enc-base64",
+              "cryptojs/md5",
+              "cryptojs/evpkdf",
+              "cryptojs/cipher-core"
+            ]
+          },
+          "tripledes": {
+            "deps": [
+              "cryptojs/enc-base64",
+              "cryptojs/md5",
+              "cryptojs/evpkdf",
+              "cryptojs/cipher-core"
+            ]
+          },
+          "rc4": {
+            "deps": [
+              "cryptojs/enc-base64",
+              "cryptojs/md5",
+              "cryptojs/evpkdf",
+              "cryptojs/cipher-core"
+            ]
+          },
+          "rabbit": {
+            "deps": [
+              "cryptojs/enc-base64",
+              "cryptojs/md5",
+              "cryptojs/evpkdf",
+              "cryptojs/cipher-core"
+            ]
+          },
+          "rabbit-legacy": {
+            "deps": [
+              "cryptojs/enc-base64",
+              "cryptojs/md5",
+              "cryptojs/evpkdf",
+              "cryptojs/cipher-core"
+            ]
+          },
+          "*": {
+            "deps": [
+              "cryptojs"
+            ]
+          }
+        }
+      },
+      "github:ajaxorg/ace-builds@1.2.3": {
+        "main": "ace",
+        "format": "global",
+        "directories": {
+          "lib": "src-noconflict"
+        },
+        "shim": {
+          "ace": {
+            "exports": "ace"
+          },
+          "*": {
+            "deps": [
+              "ace"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

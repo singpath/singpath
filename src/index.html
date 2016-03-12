@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Singpath</title>
+	</head>
+	<body>
+
+		<singpath layout="row"></singpath>
+
+		<script src="jspm_packages/system.js"></script>
+		<script src="config.js"></script>
+		<script>
+			window.SINGPATH = {
+				firebaseId: 'singpath-play'
+			};
+			
+			System.import(
+				'./app.js'
+			).catch(
+	    	console.error.bind(console)
+	    );
+		</script>
+	</body>
+</html>

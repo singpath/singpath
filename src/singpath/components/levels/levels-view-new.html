@@ -1,0 +1,32 @@
+<md-content class="md-padding">
+    <form name="newLevel" ng-submit="ctrl.createLevel(ctrl.currentUser, ctrl.path, ctrl.level)">
+        <spf-sign-form current-user="ctrl.currentUser" ng-if="ctrl.profileNeedsUpdate"></spf-sign-form>
+
+        <div layout layout-sm="column">
+            <md-input-container flex>
+                <label>Level Title</label>
+                <input ng-minlength="3" md-maxlength="64" required name="levelTitle" ng-model="ctrl.level.title">
+                <div ng-messages="newLevel.levelTitle.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="minlength">The title has to be more than 2 characters long.</div>
+                    <div ng-message="md-maxlength">The title has to be less than 64 characters long.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <md-input-container flex>
+            <label>Description</label>
+            <textarea name="levelDescription" ng-model="ctrl.level.description" columns="1" required ng-minlength="1" md-maxlength="200"></textarea>
+            <div ng-messages="newLevel.levelDescription.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="minlength">The description has to be more than 1 characters long.</div>
+                <div ng-message="md-maxlength">The screen name has to be less than 200 characters long.</div>
+            </div>
+        </md-input-container>
+
+        <div layout="row" layout-align="center center">
+            <md-button flex="25" flex-sm="50" type="submit" class="md-raised md-primary" ng-disabled="!newLevel.$valid || ctrl.savingPath">Create Level</md-button>
+            <md-button flex="25" flex-sm="50" type="reset" class="md-raised">Reset</md-button>
+        </div>
+    </form>
+</md-content>

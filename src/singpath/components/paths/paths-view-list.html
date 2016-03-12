@@ -1,0 +1,31 @@
+<md-content flex class="md-padding">
+
+    <p ng-if="ctrl.paths|spfEmpty">No path found.</p>
+
+    <md-list>
+        <md-list-item class="md-3-line" ng-repeat="path in ctrl.paths" ng-if="path.language !== 'angularjs'">
+            <div class="language-icon" >
+                <md-icon md-svg-icon="language:{{path.language}}" alt="{{path.language}}"></md-icon>
+            </div>
+            <div class="md-list-item-text">
+                <h3 layout>
+                    <span flex>{{path.title}}</span>
+                    <span hide>[{{path.language}}]</span>
+                </h3>
+                <h4>by {{path.owner.displayName}}</h4>
+                <p>{{path.description}}</p>
+            </div>
+            <div layout="column" layout-align="top center">
+                <md-button ng-href="#{{ 'levels'|urlFor: {pathId: path.$id} }}" layout layout-align="center center" class="md-raised md-primary responsive-button" aria-label="Run">
+                    <md-icon ng-if="!ctrl.profile.hasStartedPath(path)" md-svg-icon="chevron-right"></md-icon>
+                    <md-icon ng-if="ctrl.profile.workingOnPath(path)" md-svg-icon="play-arrow"></md-icon>
+                    <md-icon ng-if="ctrl.profile.hasSolvedPath(path)" md-svg-icon="check"></md-icon>    
+                    <span hide-sm ng-if="!ctrl.profile.hasStartedPath(path)" flex>Start</span>
+                    <span hide-sm ng-if="ctrl.profile.workingOnPath(path)" flex>Continue</span>
+                    <span hide-sm ng-if="ctrl.profile.hasSolvedPath(path)" flex>Results</span>
+                </md-button>
+            </div>
+        </md-list-item>
+    </md-list>
+
+</md-content>
