@@ -19,6 +19,7 @@
     "build": "./bin/build",
     "keygen": "openssl req -x509 -nodes -newkey rsa:4096 -new -days 1024 -subj \"/C=SG/ST=Denial/L=Singapore/O=Dis/CN=localhost\" -keyout bin/localhost.key -out bin/localhost.cert",
     "lint": "eslint src/ && jscs src/",
+    "post-install": "jspm install",
     "serve": "./bin/server.js src/",
     "serve-build": "./bin/server.js build/",
     "start": "./bin/server.js",
