@@ -1,6 +1,6 @@
 'use strict';
 
-import {singpath} from '../../module';
+import {singpath} from '../../module.js';
 import pathsTmpl from './paths-view-list.html!text';
 import newPathTmpl from './paths-view-new.html!text';
 
