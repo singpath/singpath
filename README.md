@@ -8,7 +8,7 @@ cd singpath
 npm install
 ```
 
-Edit `src/index.html` and `src/index.html` to point to the correct Firebase DB id.
+Edit `src/index.html` and `build/index.html` to point to the correct Firebase DB id.
 By default, the source versionpoints to "singpath-play", the build version to
 singpath (our production DB).
 
