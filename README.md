@@ -6,6 +6,8 @@
 git clone https://github.com/singpath/singpath.git
 cd singpath
 npm install
+npm install -g jspm
+jspm install
 ```
 
 Edit `src/index.html` and `build/index.html` to point to the correct Firebase DB id.
