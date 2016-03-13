@@ -1,6 +1,6 @@
 'use strict';
 
-import {singpath} from '../../module';
+import {singpath} from '../../module.js';
 import tmpl from './profile-view.html!text';
 
 singpath.config([

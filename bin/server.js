@@ -26,5 +26,6 @@ const server = http2.createServer({key, cert}, (req, resp) => {
   });
 });
 
-server.listen(8080);
-
+server.listen(8080, () => console.log(
+  'Dev server listening on https://localhost:8080 (don\'t forget to use "HTTPS")'
+));

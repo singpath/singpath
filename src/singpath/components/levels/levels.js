@@ -1,6 +1,6 @@
 'use strict';
 
-import {singpath} from '../../module';
+import {singpath} from '../../module.js';
 import levelsTmpl from './levels-view-list.html!text';
 import newLevelTmpl from './levels-view-new.html!text';
 

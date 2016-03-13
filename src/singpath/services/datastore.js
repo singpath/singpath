@@ -4,7 +4,7 @@
 'use strict';
 
 import angular from 'angular';
-import {singpath} from '../module';
+import {singpath} from '../module.js';
 
 const DEFAULT_PYTHON_TEST = `>>> hello
 "world"`;

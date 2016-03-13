@@ -5,5 +5,5 @@
  */
 'use strict';
 
-import './datastore';
-import './routes';
+import './datastore.js';
+import './routes.js';

@@ -1,7 +1,7 @@
 'use strict';
 
 import angular from 'angular';
-import {singpath} from './singpath/index';
+import {singpath} from './singpath/index.js';
 
 singpath.config([
   'spfFirebaseRefProvider',

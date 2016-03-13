@@ -1,8 +1,8 @@
 'use strict';
 
-import {singpath} from './module';
-import './services/index';
-import './components/index';
+import {singpath} from './module.js';
+import './services/index.js';
+import './components/index.js';
 import './singpath.css!';
 
 /**

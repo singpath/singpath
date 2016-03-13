@@ -1,6 +1,6 @@
 'use strict';
 
-import {singpath} from '../module';
+import {singpath} from '../module.js';
 
 /**
  * Label paths - to be used by each component to configure their route.

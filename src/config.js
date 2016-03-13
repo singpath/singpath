@@ -13,291 +13,6 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
 
-  depCache: {
-    "app.js": [
-      "angular",
-      "./singpath/index"
-    ],
-    "github:angular/bower-angular@1.5.0.js": [
-      "github:angular/bower-angular@1.5.0/angular"
-    ],
-    "singpath/index.js": [
-      "./module",
-      "./services/index",
-      "./components/index",
-      "./singpath.css!"
-    ],
-    "singpath/services/index.js": [
-      "./datastore",
-      "./routes"
-    ],
-    "singpath/module.js": [
-      "angular",
-      "firebase",
-      "angularfire",
-      "angular-loading-bar",
-      "angular-animate",
-      "angular-messages",
-      "angular-route",
-      "../shared/index"
-    ],
-    "singpath/components/index.js": [
-      "./levels/levels",
-      "./paths/paths",
-      "./problems/problems",
-      "./profile/profile",
-      "./singpath/singpath",
-      "./temp/temp"
-    ],
-    "singpath/services/routes.js": [
-      "../module"
-    ],
-    "github:firebase/firebase-bower@2.4.1.js": [
-      "github:firebase/firebase-bower@2.4.1/firebase"
-    ],
-    "github:firebase/angularfire@1.1.4.js": [
-      "github:firebase/angularfire@1.1.4/index.js"
-    ],
-    "singpath/services/datastore.js": [
-      "babel-runtime/core-js/object/keys",
-      "angular",
-      "../module"
-    ],
-    "github:chieffancypants/angular-loading-bar@0.8.0.js": [
-      "github:chieffancypants/angular-loading-bar@0.8.0/build/loading-bar"
-    ],
-    "github:angular/bower-angular-animate@1.5.0.js": [
-      "github:angular/bower-angular-animate@1.5.0/angular-animate"
-    ],
-    "github:angular/bower-angular-messages@1.5.0.js": [
-      "github:angular/bower-angular-messages@1.5.0/angular-messages"
-    ],
-    "github:angular/bower-angular-route@1.5.0.js": [
-      "github:angular/bower-angular-route@1.5.0/angular-route"
-    ],
-    "shared/index.js": [
-      "./module",
-      "./filters",
-      "./services/index",
-      "./components/index",
-      "./shared.css!"
-    ],
-    "singpath/components/levels/levels.js": [
-      "../../module",
-      "./levels-view-list.html!text",
-      "./levels-view-new.html!text"
-    ],
-    "singpath/components/paths/paths.js": [
-      "../../module",
-      "./paths-view-list.html!text",
-      "./paths-view-new.html!text"
-    ],
-    "singpath/components/problems/problems.js": [
-      "angular",
-      "../../module",
-      "./problems-view-list.html!text",
-      "./problems-view-list-edit.html!text",
-      "./problems-view-play.html!text",
-      "./problems.css!"
-    ],
-    "singpath/components/profile/profile.js": [
-      "../../module",
-      "./profile-view.html!text"
-    ],
-    "singpath/components/singpath/singpath.js": [
-      "../../module",
-      "./singpath-view.html!text",
-      "./singpath.css!"
-    ],
-    "singpath/components/temp/temp.js": [
-      "../../module",
-      "./temp.html!text",
-      "./temp1.html!text"
-    ],
-    "github:firebase/angularfire@1.1.4/index.js": [
-      "./dist/angularfire"
-    ],
-    "shared/services/index.js": [
-      "./countries",
-      "./crypto",
-      "./datastore",
-      "./firebase",
-      "./routes",
-      "./icons/icons"
-    ],
-    "shared/components/index.js": [
-      "./ace/ace.js",
-      "./alert/alert.js",
-      "./navbar/navbar.js",
-      "./sign/sign.js"
-    ],
-    "shared/module.js": [
-      "angular",
-      "firebase",
-      "angularfire",
-      "angular-loading-bar",
-      "angular-animate",
-      "angular-messages",
-      "angular-route",
-      "angular-material"
-    ],
-    "npm:babel-runtime@5.8.35/core-js/object/keys.js": [
-      "core-js/library/fn/object/keys"
-    ],
-    "shared/filters.js": [
-      "babel-runtime/core-js/object/keys",
-      "./module"
-    ],
-    "github:angular/bower-angular-animate@1.5.0/angular-animate.js": [
-      "angular"
-    ],
-    "github:angular/bower-angular-messages@1.5.0/angular-messages.js": [
-      "angular"
-    ],
-    "github:angular/bower-angular-route@1.5.0/angular-route.js": [
-      "angular"
-    ],
-    "github:chieffancypants/angular-loading-bar@0.8.0/build/loading-bar.js": [
-      "angular",
-      "./loading-bar.css!"
-    ],
-    "shared/services/countries.js": [
-      "../module"
-    ],
-    "shared/services/crypto.js": [
-      "cryptojs",
-      "cryptojs/md5",
-      "cryptojs/pbkdf2",
-      "cryptojs/sha256",
-      "../module"
-    ],
-    "shared/services/datastore.js": [
-      "angular",
-      "../module"
-    ],
-    "shared/services/firebase.js": [
-      "babel-runtime/core-js/object/keys",
-      "angular",
-      "firebase",
-      "../module"
-    ],
-    "shared/services/routes.js": [
-      "babel-runtime/core-js/object/keys",
-      "../module"
-    ],
-    "github:angular/bower-material@1.0.6.js": [
-      "github:angular/bower-material@1.0.6/angular-material"
-    ],
-    "npm:core-js@1.2.6/library/fn/object/keys.js": [
-      "../../modules/es6.object.keys",
-      "../../modules/$.core"
-    ],
-    "shared/services/icons/icons.js": [
-      "../../module",
-      "./svgdefs.svg!text",
-      "./icons-python.svg!text",
-      "./icons-angularjs.svg!text",
-      "./icons-javascript.svg!text",
-      "./icons-java.svg!text"
-    ],
-    "shared/components/alert/alert.js": [
-      "../../module",
-      "./alert-view-toaster.html!text",
-      "./alert.css!text"
-    ],
-    "shared/components/ace/ace.js": [
-      "angular",
-      "../../module",
-      "ace",
-      "ace/mode-html.js",
-      "ace/mode-java.js",
-      "ace/mode-javascript.js",
-      "ace/mode-python.js",
-      "ace/theme-twilight.js",
-      "./ace.css!"
-    ],
-    "shared/components/navbar/navbar.js": [
-      "angular",
-      "../../module",
-      "./navbar-view.html!text",
-      "./navbar.css!"
-    ],
-    "shared/components/sign/sign.js": [
-      "babel-runtime/core-js/object/keys",
-      "../../module",
-      "./sign-view.html!text"
-    ],
-    "github:sytelus/cryptojs@3.1.2.js": [
-      "github:sytelus/cryptojs@3.1.2/core"
-    ],
-    "github:sytelus/cryptojs@3.1.2/md5.js": [
-      "cryptojs"
-    ],
-    "github:sytelus/cryptojs@3.1.2/pbkdf2.js": [
-      "cryptojs/sha1",
-      "cryptojs/hmac"
-    ],
-    "github:sytelus/cryptojs@3.1.2/sha256.js": [
-      "cryptojs"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3.js": [
-      "github:ajaxorg/ace-builds@1.2.3/ace"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3/mode-html.js": [
-      "ace"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3/mode-java.js": [
-      "ace"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3/mode-javascript.js": [
-      "ace"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3/mode-python.js": [
-      "ace"
-    ],
-    "npm:core-js@1.2.6/library/modules/es6.object.keys.js": [
-      "./$.to-object",
-      "./$.object-sap"
-    ],
-    "github:angular/bower-material@1.0.6/angular-material.js": [
-      "./angular-material.css!",
-      "angular",
-      "angular-animate",
-      "angular-aria"
-    ],
-    "github:ajaxorg/ace-builds@1.2.3/theme-twilight.js": [
-      "ace"
-    ],
-    "github:sytelus/cryptojs@3.1.2/sha1.js": [
-      "cryptojs"
-    ],
-    "github:sytelus/cryptojs@3.1.2/hmac.js": [
-      "cryptojs"
-    ],
-    "npm:core-js@1.2.6/library/modules/$.to-object.js": [
-      "./$.defined"
-    ],
-    "npm:core-js@1.2.6/library/modules/$.object-sap.js": [
-      "./$.export",
-      "./$.core",
-      "./$.fails"
-    ],
-    "github:angular/bower-angular-aria@1.5.0.js": [
-      "github:angular/bower-angular-aria@1.5.0/angular-aria"
-    ],
-    "npm:core-js@1.2.6/library/modules/$.export.js": [
-      "./$.global",
-      "./$.core",
-      "./$.ctx"
-    ],
-    "github:angular/bower-angular-aria@1.5.0/angular-aria.js": [
-      "angular"
-    ],
-    "npm:core-js@1.2.6/library/modules/$.ctx.js": [
-      "./$.a-function"
-    ]
-  },
-
   map: {
     "ace": "github:ajaxorg/ace-builds@1.2.3",
     "angular": "github:angular/bower-angular@1.5.0",
@@ -314,6 +29,7 @@ System.config({
     "cryptojs": "github:sytelus/cryptojs@3.1.2",
     "css": "github:systemjs/plugin-css@0.1.20",
     "firebase": "github:firebase/firebase-bower@2.4.1",
+    "singpath-core": "github:singpath/singpath-core@0.1.0",
     "text": "github:systemjs/plugin-text@0.0.7",
     "github:angular/bower-angular-animate@1.5.0": {
       "angular": "github:angular/bower-angular@1.5.0"
@@ -374,6 +90,18 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:singpath/singpath-core@0.1.0": {
+      "ace": "github:ajaxorg/ace-builds@1.2.3",
+      "angular": "github:angular/bower-angular@1.5.0",
+      "angular-animate": "github:angular/bower-angular-animate@1.5.0",
+      "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.8.0",
+      "angular-material": "github:angular/bower-material@1.0.6",
+      "angular-messages": "github:angular/bower-angular-messages@1.5.0",
+      "angular-route": "github:angular/bower-angular-route@1.5.0",
+      "angularfire": "github:firebase/angularfire@1.1.4",
+      "cryptojs": "github:sytelus/cryptojs@3.1.2",
+      "firebase": "github:firebase/firebase-bower@2.4.1"
     },
     "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",

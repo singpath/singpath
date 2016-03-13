@@ -1,7 +1,7 @@
 'use strict';
 
 import angular from 'angular';
-import {singpath} from '../../module';
+import {singpath} from '../../module.js';
 import listTmpl from './problems-view-list.html!text';
 import editTmpl from './problems-view-list-edit.html!text';
 import playTmpl from './problems-view-play.html!text';

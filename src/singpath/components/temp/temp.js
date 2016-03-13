@@ -1,6 +1,6 @@
 'use strict';
 
-import {singpath} from '../../module';
+import {singpath} from '../../module.js';
 import tmpl from './temp.html!text';
 import tmpl1 from './temp1.html!text';
 
