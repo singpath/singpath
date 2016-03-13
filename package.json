@@ -1,6 +1,6 @@
 {
   "name": "singpath-jspm",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "",
   "repository": "github:singpath/singpath",
   "main": "src/app.js",
