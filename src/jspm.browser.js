@@ -28,16 +28,16 @@ SystemJS.config({
     "github:ajaxorg/ace-builds@1.2.3/theme-twilight.js": [
       "ace/ace"
     ],
-    "github:angular/bower-angular-animate@1.5.0/angular-animate.js": [
+    "github:angular/bower-angular-animate@1.5.1/angular-animate.js": [
       "angular"
     ],
-    "github:angular/bower-angular-aria@1.5.0/angular-aria.js": [
+    "github:angular/bower-angular-aria@1.5.1/angular-aria.js": [
       "angular"
     ],
-    "github:angular/bower-angular-messages@1.5.0/angular-messages.js": [
+    "github:angular/bower-angular-messages@1.5.1/angular-messages.js": [
       "angular"
     ],
-    "github:angular/bower-angular-route@1.5.0/angular-route.js": [
+    "github:angular/bower-angular-route@1.5.1/angular-route.js": [
       "angular"
     ],
     "github:angular/bower-material@1.0.6/angular-material.js": [
@@ -54,7 +54,7 @@ SystemJS.config({
       "firebase",
       "angular"
     ],
-    "github:singpath/singpath-core@0.1.0/components/ace/ace.js": [
+    "github:singpath/singpath-core@0.3.0/components/ace/ace.js": [
       "angular",
       "../../module.js",
       "ace",
@@ -65,38 +65,38 @@ SystemJS.config({
       "ace/theme-twilight.js",
       "./ace.css!"
     ],
-    "github:singpath/singpath-core@0.1.0/components/alert/alert.js": [
+    "github:singpath/singpath-core@0.3.0/components/alert/alert.js": [
       "../../module.js",
       "./alert-view-toaster.html!text",
       "./alert.css!text"
     ],
-    "github:singpath/singpath-core@0.1.0/components/index.js": [
+    "github:singpath/singpath-core@0.3.0/components/index.js": [
       "./ace/ace.js",
       "./alert/alert.js",
       "./navbar/navbar.js",
       "./sign/sign.js"
     ],
-    "github:singpath/singpath-core@0.1.0/components/navbar/navbar.js": [
+    "github:singpath/singpath-core@0.3.0/components/navbar/navbar.js": [
       "angular",
       "../../module.js",
       "./navbar-view.html!text",
       "./navbar.css!"
     ],
-    "github:singpath/singpath-core@0.1.0/components/sign/sign.js": [
+    "github:singpath/singpath-core@0.3.0/components/sign/sign.js": [
       "../../module.js",
       "./sign-view.html!text"
     ],
-    "github:singpath/singpath-core@0.1.0/filters.js": [
+    "github:singpath/singpath-core@0.3.0/filters.js": [
       "./module.js"
     ],
-    "github:singpath/singpath-core@0.1.0/index.js": [
+    "github:singpath/singpath-core@0.3.0/index.js": [
       "./module.js",
       "./filters.js",
       "./services/index.js",
       "./components/index.js",
       "./shared.css!"
     ],
-    "github:singpath/singpath-core@0.1.0/module.js": [
+    "github:singpath/singpath-core@0.3.0/module.js": [
       "angular",
       "firebase",
       "angularfire",
@@ -106,26 +106,26 @@ SystemJS.config({
       "angular-route",
       "angular-material"
     ],
-    "github:singpath/singpath-core@0.1.0/services/countries.js": [
+    "github:singpath/singpath-core@0.3.0/services/countries.js": [
       "../module.js"
     ],
-    "github:singpath/singpath-core@0.1.0/services/crypto.js": [
+    "github:singpath/singpath-core@0.3.0/services/crypto.js": [
       "cryptojs",
       "cryptojs/md5.js",
       "cryptojs/pbkdf2.js",
       "cryptojs/sha256.js",
       "../module.js"
     ],
-    "github:singpath/singpath-core@0.1.0/services/datastore.js": [
+    "github:singpath/singpath-core@0.3.0/services/datastore.js": [
       "angular",
       "../module.js"
     ],
-    "github:singpath/singpath-core@0.1.0/services/firebase.js": [
+    "github:singpath/singpath-core@0.3.0/services/firebase.js": [
       "angular",
       "firebase",
       "../module.js"
     ],
-    "github:singpath/singpath-core@0.1.0/services/icons/icons.js": [
+    "github:singpath/singpath-core@0.3.0/services/icons/icons.js": [
       "../../module.js",
       "./svgdefs.svg!text",
       "./icons-python.svg!text",
@@ -133,7 +133,7 @@ SystemJS.config({
       "./icons-javascript.svg!text",
       "./icons-java.svg!text"
     ],
-    "github:singpath/singpath-core@0.1.0/services/index.js": [
+    "github:singpath/singpath-core@0.3.0/services/index.js": [
       "./countries.js",
       "./crypto.js",
       "./datastore.js",
@@ -141,7 +141,7 @@ SystemJS.config({
       "./routes.js",
       "./icons/icons.js"
     ],
-    "github:singpath/singpath-core@0.1.0/services/routes.js": [
+    "github:singpath/singpath-core@0.3.0/services/routes.js": [
       "../module.js"
     ],
     "github:sytelus/cryptojs@3.1.2/hmac.js": [
