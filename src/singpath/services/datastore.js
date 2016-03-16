@@ -45,8 +45,10 @@ singpath.factory('spfDataStore', [
   'spfAuth',
   'spfAuthData',
   'spfFirebase',
+  'spfServicesUrl',
   function spfDataStoreFactory(
-    $window, $q, $http, $log, $firebaseUtils, $firebaseObject, $firebaseArray, spfAuth, spfAuthData, spfFirebase
+    $window, $q, $http, $log, $firebaseUtils, $firebaseObject, $firebaseArray,
+    spfAuth, spfAuthData, spfFirebase, spfServicesUrl
   ) {
     var spfDataStore;
 
@@ -243,12 +245,18 @@ singpath.factory('spfDataStore', [
             var problemId = this.$id;
 
             return $firebaseObject.prototype.$remove.apply(this).then(function() {
+              // TODO: remove need for this.
+              //
+              // Currently only a prodile owner can add/remove profile data about
+              // solved problem. Instead, anybody should be able to update
+              // those data as long as the match with the db.
               return $http.delete(
-                '/'.join([
-                  '/api/paths', path.key(),
+                [
+                  spfServicesUrl.backend,
+                  'api/paths', path.key(),
                   'levels', level.key(),
                   'problems', problemId
-                ])
+                ].join('/')
               );
             }).catch(function(err) {
               $log.error(err);

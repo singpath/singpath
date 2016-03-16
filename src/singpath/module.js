@@ -19,3 +19,7 @@ export const singpath = angular.module('spf', [
   'ngMaterial',
   spfShared.name
 ]);
+
+singpath.value('spfServicesUrl', {
+  backend: 'http://api.singpath.com/'
+});
