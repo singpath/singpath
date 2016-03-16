@@ -17,25 +17,39 @@
     "jspm": "^0.16.31",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
+    "npm-run-all": "^1.5.3",
     "serve-static": "^1.10.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0"
   },
+  "config": {
+    "port": 8080,
+    "build_dir": "dist/"
+  },
   "scripts": {
-    "build": "./bin/build",
+    "build": "npm-run-all clean build:dir build:assets build:archive",
+    "build:archive": "cd ${npm_package_config_build_dir}; zip -r ${npm_package_name}.zip ${npm_package_name}",
+    "build:assets": "npm-run-all --parallel build:assets:dist build:assets:ace build:assets:bundles",
+    "build:assets:ace": "cp src/jspm_packages/github/ajaxorg/ace-builds@*/worker-*.js ${npm_package_config_build_dir}/${npm_package_name}/",
+    "build:assets:dist": "cp -r assets/* ${npm_package_config_build_dir}/${npm_package_name}/",
+    "build:assets:bundles": "jspm depcache app.js && jspm bundle-sfx app.js ${npm_package_config_build_dir}/${npm_package_name}/app.js --minify",
+    "build:dir": "mkdir -p ${npm_package_config_build_dir}/${npm_package_name}",
+    "clean": "test -d $npm_package_config_build_dir && rm -r $npm_package_config_build_dir || echo 'Nothing to clean.'",
     "keygen": "openssl req -x509 -nodes -newkey rsa:4096 -new -days 1024 -subj \"/C=SG/ST=Denial/L=Singapore/O=Dis/CN=localhost\" -keyout bin/localhost.key -out bin/localhost.cert",
     "lint": "eslint src/ && jscs src/",
     "serve": "./bin/server.js src/",
-    "serve-build": "./bin/server.js build/",
-    "start": "./bin/server.js",
+    "serve-build": "./bin/server.js dist/${npm_package_name}",
+    "start": "./bin/server.js src/",
     "test": "mocha --compilers js:babel/register tests/index"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "jspm": {
+    "main": "index.js",
     "directories": {
-      "baseURL": "src"
+      "baseURL": "src",
+      "lib": "src/singpath"
     },
     "dependencies": {
       "ace": "github:ajaxorg/ace-builds@^1.2.3",
