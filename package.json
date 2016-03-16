@@ -1,5 +1,5 @@
 {
-  "name": "singpath-jspm",
+  "name": "singpath",
   "version": "0.2.0",
   "description": "Singpath UI",
   "repository": "github:singpath/singpath",
@@ -14,7 +14,7 @@
     "finalhandler": "^0.4.1",
     "http2": "^3.3.2",
     "jscs": "^2.9.0",
-    "jspm": "^0.16.31",
+    "jspm": "^0.17.0-beta.11",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
     "npm-run-all": "^1.5.3",
@@ -24,16 +24,11 @@
   },
   "config": {
     "port": 8080,
-    "build_dir": "dist/"
+    "build_dir": "dist/",
+    "build_assets_dir": "assets/"
   },
   "scripts": {
-    "build": "npm-run-all clean build:dir build:assets build:archive",
-    "build:archive": "cd ${npm_package_config_build_dir}; zip -r ${npm_package_name}.zip ${npm_package_name}",
-    "build:assets": "npm-run-all --parallel build:assets:dist build:assets:ace build:assets:bundles",
-    "build:assets:ace": "cp src/jspm_packages/github/ajaxorg/ace-builds@*/worker-*.js ${npm_package_config_build_dir}/${npm_package_name}/",
-    "build:assets:dist": "cp -r assets/* ${npm_package_config_build_dir}/${npm_package_name}/",
-    "build:assets:bundles": "jspm depcache app.js && jspm bundle-sfx app.js ${npm_package_config_build_dir}/${npm_package_name}/app.js --minify",
-    "build:dir": "mkdir -p ${npm_package_config_build_dir}/${npm_package_name}",
+    "build": "./bin/build",
     "clean": "test -d $npm_package_config_build_dir && rm -r $npm_package_config_build_dir || echo 'Nothing to clean.'",
     "keygen": "openssl req -x509 -nodes -newkey rsa:4096 -new -days 1024 -subj \"/C=SG/ST=Denial/L=Singapore/O=Dis/CN=localhost\" -keyout bin/localhost.key -out bin/localhost.cert",
     "lint": "eslint src/ && jscs src/",
@@ -62,15 +57,446 @@
       "angularfire": "github:firebase/angularfire@^1.1.4",
       "cryptojs": "github:sytelus/cryptojs@^3.1.2",
       "firebase": "github:firebase/firebase-bower@^2.4.1",
-      "singpath-core": "github:singpath/singpath-core@^0.1.0"
+      "singpath-core": "github:singpath/singpath-core@^0.2.0"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "clean-css": "npm:clean-css@^3.4.10",
-      "core-js": "npm:core-js@^1.1.4",
       "css": "github:systemjs/plugin-css@^0.1.20",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.8",
       "text": "github:systemjs/plugin-text@^0.0.7"
+    },
+    "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "core-js": "npm:core-js@^1.1.4",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
+      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+    },
+    "overrides": {
+      "github:ajaxorg/ace-builds@1.2.3": {
+        "main": "ace",
+        "format": "global",
+        "directories": {
+          "lib": "src-noconflict"
+        },
+        "meta": {
+          "ace.js": {
+            "exports": "ace",
+            "format": "global"
+          },
+          "*.js": {
+            "deps": [
+              "ace/ace"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-animate@1.5.0": {
+        "main": "angular-animate",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-animate.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-aria@1.5.0": {
+        "main": "angular-aria",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-aria.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-messages@1.5.0": {
+        "main": "angular-messages",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.5.0"
+        },
+        "meta": {
+          "angular-messages.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular-route@1.5.0": {
+        "main": "angular-route",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0"
+        },
+        "meta": {
+          "angular-route.js": {
+            "deps": [
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-angular@1.5.0": {
+        "main": "angular",
+        "meta": {
+          "angular.js": {
+            "exports": "angular",
+            "format": "global"
+          }
+        }
+      },
+      "github:angular/bower-material@1.0.6": {
+        "main": "angular-material",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.5.0",
+          "angular-animate": "^1.5.0",
+          "angular-aria": "^1.5.0",
+          "css": "^0.1.0"
+        },
+        "meta": {
+          "angular-material.js": {
+            "deps": [
+              "./angular-material.css!",
+              "angular",
+              "angular-animate",
+              "angular-aria"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:chieffancypants/angular-loading-bar@0.8.0": {
+        "main": "build/loading-bar",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.2.9",
+          "css": "*"
+        },
+        "meta": {
+          "build/loading-bar.js": {
+            "deps": [
+              "angular",
+              "./loading-bar.css!"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:firebase/angularfire@1.1.4": {
+        "main": "dist/angularfire.js",
+        "registry": "jspm",
+        "dependencies": {
+          "angular": "^1.3.0",
+          "firebase": "^2.0.0"
+        },
+        "meta": {
+          "dist/angularfire.js": {
+            "deps": [
+              "firebase",
+              "angular"
+            ],
+            "format": "global"
+          }
+        }
+      },
+      "github:firebase/firebase-bower@2.4.1": {
+        "main": "firebase",
+        "registry": "jspm"
+      },
+      "github:sytelus/cryptojs@3.1.2": {
+        "main": "core.js",
+        "format": "global",
+        "directories": {
+          "lib": "components"
+        },
+        "meta": {
+          "aes.js": {
+            "deps": [
+              "cryptojs/enc-base64.js",
+              "cryptojs/md5.js",
+              "cryptojs/evpkdf.js",
+              "cryptojs/cipher-core.js"
+            ],
+            "exports": "CryptoJS.lib.BlockCipher.AES",
+            "format": "global"
+          },
+          "cipher-core.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS",
+            "format": "global"
+          },
+          "core.js": {
+            "exports": "CryptoJS",
+            "format": "global"
+          },
+          "enc-base64.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.enc.Base64",
+            "format": "global"
+          },
+          "enc-utf16.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.enc.Utf16LE",
+            "format": "global"
+          },
+          "evpkdf.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.algo.EvpKDF",
+            "format": "global"
+          },
+          "format-hex.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.format.Hex",
+            "format": "global"
+          },
+          "hmac.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.algo.HMAC",
+            "format": "global"
+          },
+          "lib-typedarrays.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.lib.WordArray",
+            "format": "global"
+          },
+          "md5.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.MD5",
+            "format": "global"
+          },
+          "mode-cfb.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.mode.CFB",
+            "format": "global"
+          },
+          "mode-ctr.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.mode.CTR",
+            "format": "global"
+          },
+          "mode-ctr-gladman.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.mode.CTRGladman",
+            "format": "global"
+          },
+          "mode-ecb.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.mode.ECB",
+            "format": "global"
+          },
+          "mode-ofb.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.mode.OFB",
+            "format": "global"
+          },
+          "pad-ansix923.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.pad.AnsiX923",
+            "format": "global"
+          },
+          "pad-iso10126.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.pad.Iso10126",
+            "format": "global"
+          },
+          "pad-iso97971.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.pad.Iso97971",
+            "format": "global"
+          },
+          "pad-nopadding.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.pad.NoPadding",
+            "format": "global"
+          },
+          "pad-zeropadding.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.pad.ZeroPadding",
+            "format": "global"
+          },
+          "pbkdf2.js": {
+            "deps": [
+              "cryptojs/sha1.js",
+              "cryptojs/hmac.js"
+            ],
+            "exports": "CryptoJS.PBKDF2",
+            "format": "global"
+          },
+          "rabbit.js": {
+            "deps": [
+              "cryptojs/enc-base64.js",
+              "cryptojs/md5.js",
+              "cryptojs/evpkdf.js",
+              "cryptojs/cipher-core.js"
+            ],
+            "exports": "CryptoJS.Rabbit",
+            "format": "global"
+          },
+          "rabbit-legacy.js": {
+            "deps": [
+              "cryptojs/enc-base64.js",
+              "cryptojs/md5.js",
+              "cryptojs/evpkdf.js",
+              "cryptojs/cipher-core.js"
+            ],
+            "exports": "CryptoJS.RabbitLegacy",
+            "format": "global"
+          },
+          "rc4.js": {
+            "deps": [
+              "cryptojs/enc-base64.js",
+              "cryptojs/md5.js",
+              "cryptojs/evpkdf.js",
+              "cryptojs/cipher-core.js"
+            ],
+            "exports": "CryptoJS.lib.StreamCipher.RC4",
+            "format": "global"
+          },
+          "RIPEMD160.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.RIPEMD160",
+            "format": "global"
+          },
+          "sha1.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.SHA1",
+            "format": "global"
+          },
+          "sha224.js": {
+            "deps": [
+              "cryptojs/sha256.js"
+            ],
+            "exports": "CryptoJS.SHA224",
+            "format": "global"
+          },
+          "sha256.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS.SHA256",
+            "format": "global"
+          },
+          "sha3.js": {
+            "deps": [
+              "cryptojs/x64-core.js"
+            ],
+            "exports": "CryptoJS.SHA3",
+            "format": "global"
+          },
+          "sha384.js": {
+            "deps": [
+              "cryptojs/x64-core.js",
+              "cryptojs/sha512.js"
+            ],
+            "exports": "CryptoJS.SHA384",
+            "format": "global"
+          },
+          "sha512.js": {
+            "deps": [
+              "cryptojs/x64-core.js"
+            ],
+            "exports": "CryptoJS.SHA512",
+            "format": "global"
+          },
+          "tripledes.js": {
+            "deps": [
+              "cryptojs/enc-base64.js",
+              "cryptojs/md5.js",
+              "cryptojs/evpkdf.js",
+              "cryptojs/cipher-core.js"
+            ],
+            "exports": "CryptoJS.lib.BlockCipher.TripleDES",
+            "format": "global"
+          },
+          "x64-core.js": {
+            "deps": [
+              "cryptojs/core.js"
+            ],
+            "exports": "CryptoJS",
+            "format": "global"
+          }
+        }
+      },
+      "npm:babel-runtime@5.8.35": {
+        "main": false,
+        "dependencies": {},
+        "optionalDependencies": {
+          "core-js": "^1.2.0"
+        }
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      }
     }
   }
 }

@@ -1,2 +1,2 @@
-src/config.js
+src/jspm.*.js
 src/jspm_packages/**/*.js
