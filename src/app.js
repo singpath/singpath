@@ -4,11 +4,17 @@ import angular from 'angular';
 import {singpath} from './singpath/index.js';
 
 singpath.config([
+  '$routeProvider',
   'spfFirebaseRefProvider',
-  function(spfFirebaseRefProvider) {
+  'routes',
+  function($routeProvider, routes, spfFirebaseRefProvider) {
     const id = window.SINGPATH && window.SINGPATH.firebaseId || 'singpath';
 
     spfFirebaseRefProvider.setBaseUrl(`https://${id}.firebaseio.com/`);
+
+    $routeProvider.otherwise({
+      redirectTo: routes.home
+    });
   }
 ]);
 
