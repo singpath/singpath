@@ -1,6 +1,6 @@
 {
   "name": "singpath",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Singpath UI",
   "repository": "github:singpath/singpath",
   "main": "src/singpath/index.js",
