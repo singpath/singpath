@@ -313,12 +313,12 @@ SystemJS.config({
   ],
   map: {
     "ace": "github:ajaxorg/ace-builds@1.2.3",
-    "angular": "github:angular/bower-angular@1.5.0",
-    "angular-animate": "github:angular/bower-angular-animate@1.5.0",
+    "angular": "github:angular/bower-angular@1.5.1",
+    "angular-animate": "github:angular/bower-angular-animate@1.5.1",
     "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.8.0",
     "angular-material": "github:angular/bower-material@1.0.6",
-    "angular-messages": "github:angular/bower-angular-messages@1.5.0",
-    "angular-route": "github:angular/bower-angular-route@1.5.0",
+    "angular-messages": "github:angular/bower-angular-messages@1.5.1",
+    "angular-route": "github:angular/bower-angular-route@1.5.1",
     "angularfire": "github:firebase/angularfire@1.1.4",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "babel-runtime": "npm:babel-runtime@5.8.35",
@@ -338,50 +338,45 @@ SystemJS.config({
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "plugin-babel": "npm:systemjs-plugin-babel@0.0.8",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
-    "singpath-core": "github:singpath/singpath-core@0.1.0",
+    "singpath-core": "github:singpath/singpath-core@0.3.0",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "text": "github:systemjs/plugin-text@0.0.7",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha"
   },
   packages: {
-    "github:angular/bower-angular-animate@1.5.0": {
+    "github:angular/bower-angular-route@1.5.1": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0"
+        "angular": "github:angular/bower-angular@1.5.1"
       }
     },
-    "github:angular/bower-angular-aria@1.5.0": {
+    "github:angular/bower-angular-messages@1.5.1": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0"
+        "angular": "github:angular/bower-angular@1.5.1"
       }
     },
-    "github:angular/bower-angular-messages@1.5.0": {
+    "github:angular/bower-angular-aria@1.5.1": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0"
-      }
-    },
-    "github:angular/bower-angular-route@1.5.0": {
-      "map": {
-        "angular": "github:angular/bower-angular@1.5.0"
+        "angular": "github:angular/bower-angular@1.5.1"
       }
     },
     "github:angular/bower-material@1.0.6": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0",
-        "angular-animate": "github:angular/bower-angular-animate@1.5.0",
-        "angular-aria": "github:angular/bower-angular-aria@1.5.0",
+        "angular": "github:angular/bower-angular@1.5.1",
+        "angular-animate": "github:angular/bower-angular-animate@1.5.1",
+        "angular-aria": "github:angular/bower-angular-aria@1.5.1",
         "css": "github:systemjs/plugin-css@0.1.20"
       }
     },
     "github:chieffancypants/angular-loading-bar@0.8.0": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0",
+        "angular": "github:angular/bower-angular@1.5.1",
         "css": "github:systemjs/plugin-css@0.1.20"
       }
     },
     "github:firebase/angularfire@1.1.4": {
       "map": {
-        "angular": "github:angular/bower-angular@1.5.0",
+        "angular": "github:angular/bower-angular@1.5.1",
         "firebase": "github:firebase/firebase-bower@2.4.1"
       }
     },
@@ -410,20 +405,6 @@ SystemJS.config({
         "url-browserify": "npm:url@0.11.0"
       }
     },
-    "github:singpath/singpath-core@0.1.0": {
-      "map": {
-        "ace": "github:ajaxorg/ace-builds@1.2.3",
-        "angular": "github:angular/bower-angular@1.5.0",
-        "angular-animate": "github:angular/bower-angular-animate@1.5.0",
-        "angular-loading-bar": "github:chieffancypants/angular-loading-bar@0.8.0",
-        "angular-material": "github:angular/bower-material@1.0.6",
-        "angular-messages": "github:angular/bower-angular-messages@1.5.0",
-        "angular-route": "github:angular/bower-angular-route@1.5.0",
-        "angularfire": "github:firebase/angularfire@1.1.4",
-        "cryptojs": "github:sytelus/cryptojs@3.1.2",
-        "firebase": "github:firebase/firebase-bower@2.4.1"
-      }
-    },
     "npm:amdefine@1.0.0": {
       "map": {}
     },
@@ -449,9 +430,7 @@ SystemJS.config({
       }
     },
     "npm:core-js@1.2.6": {
-      "map": {
-        "systemjs-json": "github:systemjs/plugin-json@0.1.0"
-      }
+      "map": {}
     },
     "npm:core-util-is@1.0.2": {
       "map": {}
