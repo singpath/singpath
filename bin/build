@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+__DIRNAME="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+__PWD="$(pwd)"
+NODE_ENV=production
+
+BUILD_DIR=${npm_package_config_build_dir:-dist/}
+BUILD_ASSETS_DIR=${npm_package_config_build_assets_dir:-assets/}
+APP_NAME=${npm_package_name:-app}
+BUILD_DEST=${BUILD_DIR}${APP_NAME}
+
+
+echo "Setting up ${BUILD_DEST}..."
+if [[ -d "$BUILD_DIR" ]]; then
+	rm -r $BUILD_DIR
+fi
+
+mkdir -p $BUILD_DEST
+cp -r ${BUILD_ASSETS_DIR}/* $BUILD_DEST
+
+
+echo "Building app bundle..."
+jspm depcache app.js
+jspm build app.js ${BUILD_DEST}/app.js --minify --skip-source-maps
+
+# Append hash to app.js
+APP_HASH=$(shasum dist/singpath/app.js | cut -c 1-8)
+sed -i.bak 's/app\.js/app.'${APP_HASH}'.js/g' ${BUILD_DEST}/index.html
+mv ${BUILD_DEST}/app.js ${BUILD_DEST}/app.${APP_HASH}.js
+
+# Remove sed backup file(s)
+rm ${BUILD_DEST}/*.bak
+
+echo "Copying Ace editor assets..."
+cp src/jspm_packages/github/ajaxorg/ace-builds@*/worker-html.js       ${BUILD_DEST}/worker-html.js
+cp src/jspm_packages/github/ajaxorg/ace-builds@*/worker-javascript.js ${BUILD_DEST}/worker-javascript.js
+
+echo "Creating archive..."
+cd $BUILD_DIR
+zip -r ${APP_NAME}.zip $APP_NAME
+cd $__PWD

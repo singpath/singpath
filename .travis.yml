@@ -1,10 +1,10 @@
 language: node_js
 node_js:
 - '4.2'
+install:
+- 'npm install'
+- './node_modules/.bin/jspm install -y'
 before_deploy:
-- 'npm install -g jspm'
-- 'jspm config registries.github.auth $JSPM_GITHUB_AUTH_TOKEN'
-- 'jspm install -y'
 - 'npm run build'
 deploy:
   skip_cleanup: true

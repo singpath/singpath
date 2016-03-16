@@ -8,10 +8,12 @@
 		<singpath layout="row"></singpath>
 
 		<script src="jspm_packages/system.js"></script>
-		<script src="config.js"></script>
+		<script src="jspm.browser.js"></script>
+		<script src="jspm.config.js"></script>
 		<script>
 			window.SINGPATH = {
-				firebaseId: 'singpath-play'
+				firebaseId: 'singpath-play',
+				backendURL: '/'
 			};
 			
 			System.import(

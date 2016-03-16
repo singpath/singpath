@@ -1,6 +1,6 @@
 {
 	"preset": "google",
-	"excludeFiles": ["node_modules", "coverage", "src/jspm_packages", "src/config.js"],
+	"excludeFiles": ["node_modules", "coverage", "src/jspm_packages", "src/jspm.*.js"],
 	"maximumLineLength": 120,
 	"disallowMultipleVarDecl": {
 		allExcept: ['undefined']
