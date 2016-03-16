@@ -10,9 +10,9 @@ npm install -g jspm
 jspm install
 ```
 
-Edit `src/index.html` and `build/index.html` to point to the correct Firebase DB id.
-By default, the source versionpoints to "singpath-play", the build version to
-singpath (our production DB).
+Edit `src/index.html` and `dist/singpath/index.html` to point to the correct
+Firebase DB id. By default, the source versionpoints to "singpath-play", the
+build version to singpath (our production DB).
 
 
 ## Run Dev server
@@ -36,7 +36,6 @@ npm run serve-build
 
 ## TODO
 
-- add README;
 - add tests;
 - add command to load rules;
 - extract shared services and components to its own package to share it with
