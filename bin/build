@@ -21,18 +21,14 @@ cp -r ${BUILD_ASSETS_DIR}/* $BUILD_DEST
 
 echo "Building app bundle..."
 jspm depcache app.js
-jspm build app.js ${BUILD_DEST}/app.js --minify
-
-# remove source map
-sed -i.bak '/^\/\/# sourceMappingURL=/d' ${BUILD_DEST}/app.js
-rm ${BUILD_DEST}/app.js.map
+jspm build app.js ${BUILD_DEST}/app.js --minify --skip-source-maps
 
 # Append hash to app.js
 APP_HASH=$(shasum dist/singpath/app.js | cut -c 1-8)
 sed -i.bak 's/app\.js/app.'${APP_HASH}'.js/g' ${BUILD_DEST}/index.html
 mv ${BUILD_DEST}/app.js ${BUILD_DEST}/app.${APP_HASH}.js
 
-# Remove sed backup files
+# Remove sed backup file(s)
 rm ${BUILD_DEST}/*.bak
 
 echo "Copying Ace editor assets..."
