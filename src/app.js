@@ -5,8 +5,8 @@ import {singpath} from './singpath/index.js';
 
 singpath.config([
   '$routeProvider',
-  'spfFirebaseRefProvider',
   'routes',
+  'spfFirebaseRefProvider',
   function($routeProvider, routes, spfFirebaseRefProvider) {
     const id = window.SINGPATH && window.SINGPATH.firebaseId || 'singpath';
 
