@@ -45,10 +45,9 @@ singpath.factory('spfDataStore', [
   'spfAuth',
   'spfAuthData',
   'spfFirebase',
-  'spfServicesUrl',
   function spfDataStoreFactory(
     $window, $q, $http, $log, $firebaseUtils, $firebaseObject, $firebaseArray,
-    spfAuth, spfAuthData, spfFirebase, spfServicesUrl
+    spfAuth, spfAuthData, spfFirebase
   ) {
     var spfDataStore;
 
@@ -241,23 +240,28 @@ singpath.factory('spfDataStore', [
 
           $remove: function() {
             var level = this.$ref().parent();
-            var path = level.parent().key();
+            var pathId = level.parent().key();
+            var levelId = level.key();
             var problemId = this.$id;
 
             return $firebaseObject.prototype.$remove.apply(this).then(function() {
-              // TODO: remove need for this.
-              //
-              // Currently only a prodile owner can add/remove profile data about
-              // solved problem. Instead, anybody should be able to update
-              // those data as long as the match with the db.
-              return $http.delete(
-                [
-                  spfServicesUrl.backend,
-                  'api/paths', path.key(),
-                  'levels', level.key(),
-                  'problems', problemId
-                ].join('/')
-              );
+              return spfDataStore.solutions.listSolutions(pathId, levelId, problemId);
+            }).then(function(publicIds) {
+              var solutionsPath = ['queuedSolutions',pathId, levelId, problemId].join('/');
+              var data = publicIds.reduce(function(data, id) {
+                var profilePath = [
+                  'userProfiles', id,
+                  'queuedSolutions', pathId, levelId, problemId
+                ].join('/');
+
+                data[profilePath] = null;
+
+                return data;
+              }, {});
+
+              data[solutionsPath] = null;
+
+              return spfFirebase.patch(['singpath'], data);
             }).catch(function(err) {
               $log.error(err);
               return $q.reject('Failed to delete this problem.');
@@ -666,6 +670,38 @@ singpath.factory('spfDataStore', [
               return spfFirebase.patch('/singpath', data);
             }
           });
+        },
+
+        listSolutions(pathId, levelId, problemId) {
+          var limit = 25;
+          var ref = spfFirebase.ref([
+            'singpath/queuedSolutions', pathId, levelId, problemId
+          ], {
+            orderByKey: true,
+            limitToFirst: limit
+          });
+          var users = {};
+
+          function query(startAt) {
+            var q = startAt ? ref.startAt(startAt) : ref;
+
+            return q.once('value').then(function(snapshot) {
+              var solutions = snapshot.val() || {};
+              var ids = Object.keys(solutions).sort();
+
+              ids.forEach(function(id) {
+                users[id] = true;
+              });
+
+              if (ids < limit) {
+                return Object.keys(users);
+              }
+
+              return query(ids.slice(-1).pop());
+            });
+          }
+
+          return query();
         }
       }
     };

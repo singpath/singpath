@@ -18,16 +18,6 @@ singpath.config([
   }
 ]);
 
-singpath.run([
-  '$window',
-  'spfServicesUrl',
-  function($window, spfServicesUrl) {
-    const backend = $window.SINGPATH && $window.SINGPATH.backendURL || 'http://api.singpath.com/';
-
-    spfServicesUrl.backend = backend;
-  }
-]);
-
 angular.element(document).ready(function() {
   angular.bootstrap(document, [singpath.name], {strictDi: true});
 });
