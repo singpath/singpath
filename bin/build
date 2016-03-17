@@ -24,7 +24,7 @@ jspm depcache app.js
 jspm build app.js ${BUILD_DEST}/app.js --minify --skip-source-maps
 
 # Append hash to app.js
-APP_HASH=$(shasum dist/singpath/app.js | cut -c 1-8)
+APP_HASH=$(shasum dist/${APP_NAME}/app.js | cut -c 1-8)
 sed -i.bak 's/app\.js/app.'${APP_HASH}'.js/g' ${BUILD_DEST}/index.html
 mv ${BUILD_DEST}/app.js ${BUILD_DEST}/app.${APP_HASH}.js
 
