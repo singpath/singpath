@@ -5,25 +5,27 @@
             <form name="editProblem" ng-submit="ctrl.saveProblem(ctrl.problems, $index)">
                 <spf-sign-form current-user="ctrl.currentUser" ng-if="ctrl.profileNeedsUpdate"></spf-sign-form>
 
-                <md-input-container flex>
-                    <label>Problem Title</label>
-                    <input ng-minlength="3" md-maxlength="64" required name="problemTitle" ng-model="problem.title">
-                    <div ng-messages="editProblem.problemTitle.$error">
-                        <div ng-message="required">This is required.</div>
-                        <div ng-message="minlength">The title has to be more than 2 characters long.</div>
-                        <div ng-message="md-maxlength">The title has to be less than 64 characters long.</div>
-                    </div>
-                </md-input-container>
+                <div layout layout-sm="column" layout-padding>
+                    <md-input-container flex>
+                        <label>Problem Title</label>
+                        <input ng-minlength="3" md-maxlength="64" required name="problemTitle" ng-model="problem.title">
+                        <div ng-messages="editProblem.problemTitle.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="minlength">The title has to be more than 2 characters long.</div>
+                            <div ng-message="md-maxlength">The title has to be less than 64 characters long.</div>
+                        </div>
+                    </md-input-container>
 
-                <md-input-container flex>
-                    <label>Description</label>
-                    <textarea name="problemDescription" ng-model="problem.description" columns="1" required ng-minlength="1" md-maxlength="2048"></textarea>
-                    <div ng-messages="editProblem.problemDescription.$error">
-                        <div ng-message="required">This is required.</div>
-                        <div ng-message="minlength">The description has to be more than 1 characters long.</div>
-                        <div ng-message="md-maxlength">The description has to be less than 2048 characters long.</div>
-                    </div>
-                </md-input-container>
+                    <md-input-container flex>
+                        <label>Description</label>
+                        <textarea name="problemDescription" ng-model="problem.description" columns="1" required ng-minlength="1" md-maxlength="2048"></textarea>
+                        <div ng-messages="editProblem.problemDescription.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="minlength">The description has to be more than 1 characters long.</div>
+                            <div ng-message="md-maxlength">The description has to be less than 2048 characters long.</div>
+                        </div>
+                    </md-input-container>
+                </div>
 
                 <div layout layout-sm="column" layout-padding>
 
@@ -71,11 +73,11 @@
 
     <h2>New Problem</h2>
 
-    <form name="newProblem" ng-submit="ctrl.createProblem(ctrl.currentUser, ctrl.problems, ctrl.newProblem)">
+    <form name="newProblem" ng-submit="ctrl.createProblem(ctrl.currentUser, ctrl.problems, ctrl.newProblem)" layout="column">
 
         <spf-sign-form current-user="ctrl.currentUser" ng-if="ctrl.profileNeedsUpdate"></spf-sign-form>
 
-        <md-input-container flex>
+        <md-input-container layout-padding>
             <label>Problem Title</label>
             <input ng-minlength="3" md-maxlength="64" required name="problemTitle" ng-model="ctrl.newProblem.title">
             <div ng-messages="newProblem.problemTitle.$error">
@@ -85,7 +87,7 @@
             </div>
         </md-input-container>
 
-        <md-input-container flex>
+        <md-input-container layout-padding>
             <label>Description</label>
             <textarea name="problemDescription" ng-model="ctrl.newProblem.description" columns="1" required ng-minlength="1" md-maxlength="2048"></textarea>
             <div ng-messages="newProblem.problemDescription.$error">
