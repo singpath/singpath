@@ -7,21 +7,10 @@ The release package are upload by Travis each time a tag is pushed to
 ## Pushing new release
 
 Bump the `package.json` version number, commit it, create a new tag and push
-the change and the new tag. You can use `npm version major|minor|patch`; e.g.
-assume you cloned the classmentor with upstream pointing to
-[singpath/singpath]\:
+the change and the new tag. You can use `npm version major|minor|patch` or
+`bin/release`:
 ```
-git clone git@github.com:your-username/singpath.git
-cd singpath
-git remote add upstream git@github.com:singpath/singpath.git
-```
-
-To publish the tag:
-```
-git checkout master
-git pull upstream master
-export NEW_VERSION=$(npm version patch)
-git push upstream master $NEW_VERSION
+./bin/release patch
 ```
 
 ## Travis configuration
