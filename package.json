@@ -13,6 +13,7 @@
     "eslint": "^1.10.3",
     "finalhandler": "^0.4.1",
     "http2": "^3.3.2",
+    "js-yaml": "^3.5.5",
     "jscs": "^2.9.0",
     "jspm": "^0.17.0-beta.11",
     "mocha": "^2.4.5",
@@ -36,7 +37,8 @@
     "serve": "./bin/server.js src/",
     "serve-build": "./bin/server.js dist/${npm_package_name}",
     "start": "./bin/server.js src/",
-    "test": "mocha --compilers js:babel/register tests/index"
+    "test": "mocha --compilers js:babel/register tests/index",
+    "travis-setup": "./bin/travis-setup.js"
   },
   "keywords": [],
   "author": "",

@@ -1,14 +1,14 @@
 language: node_js
 node_js:
-- '4.2'
+  - '4.2'
 before_deploy:
-- 'npm run build'
+  - npm run build
 deploy:
-  skip_cleanup: true
   provider: releases
-  api_key:
-    secure: c96cenmKSFueZ6tl4vAo2uzLJYhRMghmrANmDx4QuPUYLN4rIRCTrngHGg0KxJLaVCSCOHOK1iWYKyEX16RKU/cA/9srDisyO195P7euORhlwRnFkznxCeiSXgkpr9TBjNLgWTQspdbZj4/mIGUtINpapxIZBmR9hc1Nti+2znT8FZz2j7CAn3ohaJ5VrOqh6o9neVBgP8bmdFDNbqK8L7R1OuX57vYEsQAy50MuaZTfVpKRCFMcwD2gGp+U1bAwA4leX73OvOwIRdLhvCrmbZTVvQUjYS8p/fiRTx74CeM1stXTYXyOmb0PGkxWZqT0L0sgcDPU0KAuGwzJVZq4Hzt3s7V8AfYuEMZr3jm9W/Phtk60jddmJ+G1diGs7hzWNp8lZR+D5thTcyA6BuOsUb4ytGhY38qhJQYgFDBp61UC+udC9fHa31ioNzk9NIUBzNKzjex+8aBI/AnCNzK8bx3KQxiK/9yFYpihkTOFs0LVUruTa1F3tqyWBCoW5frBEkBalpvy+DfIUResvLB9qaNT1CuCn5z2F29YsYUMVkfGc6Jhx/YFQ+7auQweiD4G/9y1dpWJTF7+rEHnsIm4C9rFj+3k/qFX1K3RMuZz7XSnNU5EydJnJqASMGOPZmxPkhnFruWzgOOC4Y7nQX7HdDEp0F8JVm+d1OOqsMqyq7s=
-  file: dist/singpath.zip
+  skip_cleanup: true
   on:
     repo: singpath/singpath
     tags: true
+  file: dist/singpath.zip
+  api_key:
+    secure: CDaFMzgCm2GVlrc8nKH02qB9fk52PvKxOa9LfH7eagGCgvRzBLIrgzYfXXgAzpdSzSUCw503ndmw0wxDIPopbpFyMKzh4Zi+qZoaEfn+MIjUBAIEB43sGdY4ox8Hqki/TdhgAlaWt921Kxms2RDuNkD/l2GO7y1gq0nKGZ56FjdvufFdoPtLBy5Aa97hGq2OezRxXYMWzh2Ml0eAVwd6Fu5MTuOKDqRy7+tg2HYcTtrhEREIgHdSFbuSy/xi26JugBgGyFJOWYyHl/bSE11lxOZlw6FQroO4TuGQKup9BZjl+gl0811+Ffwg4Vo0/DrUDF4UIM8xzX28ZnFuy/TkQw5u79B78fXCxAWTHhi1FBRriHdEG9OwP6BDOycvFNV/Sb/xy9I971IF+RgirdqeaFOMEPz/CYZEoAaUlvwQXpyhVmoMKRolrrLX3G6zZADhDFxInHQB44kY2LsWNos84WXYm/+bjNkWqn4jXySF0m7pSQDb3H4U0W4aSM7IFvW53LxYuOnAgzjsxSuPCXd6yKiMwbtQb2P2dksVH4vwheT60kphJlnsWiUIE/ErLFJrmb0IhYvhe2wcjt6KAwwCnRCA8mMxsKF8Vsw4bVG8K+MiZ9wkplRkyGofbBXgrw68/UcXWzz7kmFABmlxIhvIYLIczLIoHl83TbYp5efwR3c=
