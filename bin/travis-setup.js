@@ -10,6 +10,9 @@ const travisInit = `
 language: node_js
 node_js:
 - '4.2'
+script:
+- npm run lint
+- npm run test
 before_deploy:
 - 'npm run build'
 `.trimLeft();
