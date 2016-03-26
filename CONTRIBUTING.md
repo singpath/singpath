@@ -66,11 +66,9 @@ System.import(
 
 To setup your Firebase DB:
 ```
-npm install @singpath/rules
-./node_modules/.bin/singpath-rules compile
+npm install -g @singpath/rules
+singpath-rules init-db -f my-firebase-db
 ```
-
-It will generate `rules.json` to use on your Firebase security tab.
 
 
 ## Run Dev server
