@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "./bin/build",
+    "build:gh-pages": "./bin/build-gh-pages",
     "clean": "test -d $npm_package_config_build_dir && rm -r $npm_package_config_build_dir || echo 'Nothing to clean.'",
     "keygen": "openssl req -x509 -nodes -newkey rsa:4096 -new -days 1024 -subj \"/C=SG/ST=Denial/L=Singapore/O=Dis/CN=localhost\" -keyout bin/localhost.key -out bin/localhost.cert",
     "lint": "eslint src/ && jscs src/",
