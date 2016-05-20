@@ -1,14 +1,12 @@
 'use strict';
 
-import {singpath} from '../module.js';
-
 /**
  * Label paths - to be used by each component to configure their route.
  *
  * See src/app/components/events for example.
  *
  */
-singpath.constant('routes', {
+export const map = {
   home: '/paths',
   temp: '/temp',
   temp1: '/temp1',
@@ -20,4 +18,4 @@ singpath.constant('routes', {
   problems: '/paths/:pathId/levels/:levelId/problems',
   editProblems: '/paths/:pathId/levels/:levelId/edit',
   playProblem: '/paths/:pathId/levels/:levelId/problems/:problemId/play'
-});
+};

@@ -5,5 +5,9 @@
  */
 'use strict';
 
-import './datastore.js';
-import './routes.js';
+import {singpath} from '../module.js';
+import * as datastore from'./datastore.js';
+import * as routes from './routes.js';
+
+singpath.constant('routes', routes.map);
+singpath.factory('spfDataStore', datastore.factory);

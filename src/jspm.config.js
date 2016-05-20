@@ -34,11 +34,12 @@ SystemJS.config({
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
+    "chai": "npm:chai@3.5.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "clean-css": "npm:clean-css@3.4.10",
     "core-js": "npm:core-js@1.2.6",
     "cryptojs": "github:sytelus/cryptojs@3.1.2",
-    "css": "github:systemjs/plugin-css@0.1.20",
+    "css": "github:systemjs/plugin-css@0.1.21",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "firebase": "github:firebase/firebase-bower@2.4.1",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
@@ -50,12 +51,51 @@ SystemJS.config({
     "plugin-babel": "npm:systemjs-plugin-babel@0.0.8",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "singpath-core": "github:singpath/singpath-core@0.3.0",
+    "sinon": "npm:sinon@1.17.4",
+    "sinon-chai": "npm:sinon-chai@2.8.0",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "text": "github:systemjs/plugin-text@0.0.7",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha"
   },
   packages: {
+    "npm:formatio@1.1.1": {
+      "map": {
+        "samsam": "npm:samsam@1.1.2"
+      }
+    },
+    "npm:sinon@1.17.4": {
+      "map": {
+        "formatio": "npm:formatio@1.1.1",
+        "lolex": "npm:lolex@1.3.2",
+        "samsam": "npm:samsam@1.1.2",
+        "util": "npm:util@0.10.3"
+      }
+    },
+    "npm:util@0.10.3": {
+      "map": {
+        "inherits": "npm:inherits@2.0.1"
+      }
+    },
+    "npm:buffer@4.6.0": {
+      "map": {
+        "base64-js": "npm:base64-js@1.1.2",
+        "ieee754": "npm:ieee754@1.1.6",
+        "isarray": "npm:isarray@1.0.0"
+      }
+    },
+    "npm:chai@3.5.0": {
+      "map": {
+        "assertion-error": "npm:assertion-error@1.0.1",
+        "deep-eql": "npm:deep-eql@0.1.3",
+        "type-detect": "npm:type-detect@1.0.0"
+      }
+    },
+    "npm:deep-eql@0.1.3": {
+      "map": {
+        "type-detect": "npm:type-detect@0.1.1"
+      }
+    },
     "github:angular/bower-angular-animate@1.5.1": {
       "map": {
         "angular": "github:angular/bower-angular@1.5.1"
@@ -81,13 +121,13 @@ SystemJS.config({
         "angular": "github:angular/bower-angular@1.5.1",
         "angular-animate": "github:angular/bower-angular-animate@1.5.1",
         "angular-aria": "github:angular/bower-angular-aria@1.5.1",
-        "css": "github:systemjs/plugin-css@0.1.20"
+        "css": "github:systemjs/plugin-css@0.1.21"
       }
     },
     "github:chieffancypants/angular-loading-bar@0.8.0": {
       "map": {
         "angular": "github:angular/bower-angular@1.5.1",
-        "css": "github:systemjs/plugin-css@0.1.20"
+        "css": "github:systemjs/plugin-css@0.1.21"
       }
     },
     "github:firebase/angularfire@1.1.4": {
@@ -98,7 +138,7 @@ SystemJS.config({
     },
     "github:jspm/nodelibs-buffer@0.2.0-alpha": {
       "map": {
-        "buffer-browserify": "npm:buffer@4.5.0"
+        "buffer-browserify": "npm:buffer@4.6.0"
       }
     },
     "github:jspm/nodelibs-http@0.2.0-alpha": {
@@ -119,13 +159,6 @@ SystemJS.config({
     "github:jspm/nodelibs-url@0.2.0-alpha": {
       "map": {
         "url-browserify": "npm:url@0.11.0"
-      }
-    },
-    "npm:buffer@4.5.0": {
-      "map": {
-        "base64-js": "npm:base64-js@1.1.1",
-        "ieee754": "npm:ieee754@1.1.6",
-        "isarray": "npm:isarray@1.0.0"
       }
     },
     "npm:clean-css@3.4.10": {
