@@ -109,8 +109,12 @@ travis env set --public PROD_FIREBASE_ID "my-firebase-database-name"
 travis env set --private GH_TOKEN some-github-oauth-token
 ```
 
-You can create a Github Oauth token on your [personal access tokens] setting page.
-Make sure `GH_TOKEN` is set as private, or a pull request could steal that token.
+You can create a Github Oauth token on your [personal access tokens] setting
+page. The token will need "public_repo" permission.
+
+Make sure `GH_TOKEN` is set as private, or a pull request could steal that
+token. You can verify at
+"https://travis-ci.org/<your-github-id>/singpath/settings".
 
 
 [Singpath]: https://github.com/singpath/singpath
