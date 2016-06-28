@@ -9,7 +9,7 @@ const travisFile = './.travis.yml';
 const travisInit = `
 language: node_js
 node_js:
-- '4.2'
+- '4'
 script:
 - npm run lint
 - npm run test
