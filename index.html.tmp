@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Singpath</title>
+  </head>
+  <body>
+    <singpath layout="row"></singpath>
+
+    <script>
+      window.SINGPATH = {
+        firebaseId: 'singpath'
+      };
+    </script>
+    <script src="app.5cb9281a.js"></script>
+  </body>
+</html>
