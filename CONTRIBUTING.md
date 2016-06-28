@@ -5,7 +5,7 @@ Pull Resquests (PR) are welcomes.
 
 ## Install
 
-Fork [Class Mentors], then:
+Fork [Singpath], then:
 
 ```shell
 git clone git@github.com:your-user-id/singpath.git
@@ -113,6 +113,6 @@ You can create a Github Oauth token on your [personal access tokens] setting pag
 Make sure `GH_TOKEN` is set as private, or a pull request could steal that token.
 
 
-[Class Mentors]: https://github.com/singpath/singpath
+[Singpath]: https://github.com/singpath/singpath
 [Travis CLI]: https://github.com/travis-ci/travis.rb#installation
 [personal access tokens]: https://github.com/settings/tokens
